@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaiBand Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #patient-info {
+            margin-top: 20px;
+            display: none;
+        }
+        .info-item {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Please Scan MaiBand</h1>
+    <button id="scan-button">Scan</button>
+    <div id="patient-info">
+        <h2>Patient Information</h2>
+        <div id="patient-name" class="info-item"></div>
+        <div id="patient-gender" class="info-item"></div>
+        <div id="patient-birthdate" class="info-item"></div>
+        <div id="patient-phone" class="info-item"></div>
+        <div id="conditions" class="info-item"></div>
+        <div id="medications" class="info-item"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
