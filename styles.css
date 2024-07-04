@@ -29,8 +29,10 @@ body, html {
     background: transparent;
     border: none;
     font-size: 24px;
-    color: white;
+    color: transparent;
     cursor: pointer;
+    width: 100px; /* Adjust width to cover the area */
+    height: 50px; /* Adjust height to cover the area */
 }
 
 .overlay {
