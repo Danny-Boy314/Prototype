@@ -21,16 +21,38 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log('NFC tag detected');
                     const decoder = new TextDecoder();
                     for (const record of event.message.records) {
+                        const data = decoder.decode(record.data);
                         console.log(`Record type: ${record.recordType}`);
                         console.log(`MIME type: ${record.mediaType}`);
-                        console.log(`=== data ===\n${decoder.decode(record.data)}`);
+                        console.log(`=== data ===\n${data}`);
+                        try {
+                            const jsonData = JSON.parse(data);
+                            displayData(jsonData);
+                        } catch (error) {
+                            console.log('Error parsing NFC data as JSON:', error);
+                        }
                     }
-                }
+                };
             }).catch(error => {
                 console.log(`Error starting scan: ${error}`);
             });
         } else {
             console.log("NFC is not supported on this device.");
         }
+    }
+
+    function displayData(data) {
+        console.log('Displaying data:', data);
+        screen2.classList.add('hidden');
+        screen3.classList.remove('hidden');
+
+        document.getElementById('fullName').textContent = data.fullName || 'N/A';
+        document.getElementById('dob').textContent = data.dob || 'N/A';
+        document.getElementById('sex').textContent = data.sex || 'N/A';
+        document.getElementById('medicalConditions').textContent = data.medicalConditions || 'N/A';
+        document.getElementById('medications').textContent = data.medications || 'N/A';
+        document.getElementById('allergies').textContent = data.allergies || 'N/A';
+        document.getElementById('address').textContent = data.address || 'N/A';
+        document.getElementById('contact').textContent = data.contact || 'N/A';
     }
 });
