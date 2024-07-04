@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaiBand Paramedic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="screen1" class="screen">
+        <img src="images/Screenshot_20240704_185307_Figma.jpg" alt="READ Screen">
+        <button id="readButton" class="overlay-button"></button>
+    </div>
+    <div id="screen2" class="screen hidden">
+        <img src="images/Screenshot_20240704_185313_Figma.jpg" alt="Ready to Scan Screen">
+    </div>
+    <div id="screen3" class="screen hidden">
+        <img src="images/Screenshot_20240704_185319_Figma.jpg" alt="Details Screen">
+        <div id="details">
+            <p>Full Name: <span id="fullName"></span></p>
+            <p>Date Of Birth: <span id="dob"></span></p>
+            <p>Sex: <span id="sex"></span></p>
+            <p>Medical Conditions: <span id="medicalConditions"></span></p>
+            <p>Medications: <span id="medications"></span></p>
+            <p>Allergies: <span id="allergies"></span></p>
+            <p>Address: <span id="address"></span></p>
+            <p>Contact: <span id="contact"></span></p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
