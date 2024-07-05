@@ -19,9 +19,13 @@
         #scan-container {
             position: relative;
         }
-        #scan-image {
+        .scan-image {
             max-width: 100%;
             height: auto;
+            display: none;
+        }
+        #scan-image1 {
+            display: block;
         }
         #scan-button {
             position: absolute;
@@ -46,7 +50,8 @@
 </head>
 <body>
     <div id="scan-container">
-        <img id="scan-image" src="https://Danny-Boy314.github.io/Prototype/Screenshot_20240704_185307_Figma.jpg" alt="MaiBand Paramedic">
+        <img id="scan-image1" class="scan-image" src="https://Danny-Boy314.github.io/Prototype/Screenshot_20240704_185307_Figma.jpg" alt="MaiBand Paramedic">
+        <img id="scan-image2" class="scan-image" src="https://Danny-Boy314.github.io/Prototype/Screenshot_20240704_185313_Figma.jpg" alt="Ready to Scan">
         <button id="scan-button"></button>
     </div>
     <div id="patient-info">
