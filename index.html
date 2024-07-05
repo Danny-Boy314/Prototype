@@ -8,11 +8,36 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+        }
+        #scan-container {
+            position: relative;
+        }
+        #scan-image {
+            max-width: 100%;
+            height: auto;
+        }
+        #scan-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: transparent;
+            border: none;
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
         }
         #patient-info {
             margin-top: 20px;
             display: none;
+            color: white;
         }
         .info-item {
             margin: 10px 0;
@@ -20,8 +45,10 @@
     </style>
 </head>
 <body>
-    <h1>Please scan MaiBand</h1>
-    <button id="scan-button">Scan</button>
+    <div id="scan-container">
+        <img id="scan-image" src="https://Danny-Boy314.github.io/Prototype/Screenshot_20240704_185307_Figma.jpg" alt="MaiBand Paramedic">
+        <button id="scan-button"></button>
+    </div>
     <div id="patient-info">
         <h2>Patient Information</h2>
         <div id="patient-name" class="info-item"></div>
