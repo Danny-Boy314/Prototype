@@ -1,6 +1,10 @@
 document.getElementById('scan-button').addEventListener('click', async () => {
     if ('NDEFReader' in window) {
         try {
+            // Switch to the second image
+            document.getElementById('scan-image1').style.display = 'none';
+            document.getElementById('scan-image2').style.display = 'block';
+
             const ndef = new NDEFReader();
             await ndef.scan();
             ndef.onreading = async (event) => {
@@ -10,6 +14,8 @@ document.getElementById('scan-button').addEventListener('click', async () => {
                         const decoder = new TextDecoder();
                         const url = decoder.decode(record.data);
                         await fetchAndDisplayPatientInfo(url);
+                        
+                        // Hide the scan images and show patient info
                         document.getElementById('scan-container').style.display = 'none';
                         document.getElementById('patient-info').style.display = 'block';
                     }
@@ -18,6 +24,10 @@ document.getElementById('scan-button').addEventListener('click', async () => {
         } catch (error) {
             console.error('Error reading NFC tag: ', error);
             alert('Failed to read NFC tag. Make sure your device supports NFC.');
+            
+            // Revert to the first image on error
+            document.getElementById('scan-image1').style.display = 'block';
+            document.getElementById('scan-image2').style.display = 'none';
         }
     } else {
         alert('NFC is not supported on this device.');
