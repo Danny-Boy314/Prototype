@@ -9,7 +9,9 @@ document.getElementById('scan-button').addEventListener('click', async () => {
                     if (record.recordType === 'url') {
                         const decoder = new TextDecoder();
                         const url = decoder.decode(record.data);
-                        fetchAndDisplayPatientInfo(url);
+                        await fetchAndDisplayPatientInfo(url);
+                        document.getElementById('scan-container').style.display = 'none';
+                        document.getElementById('patient-info').style.display = 'block';
                     }
                 }
             };
@@ -27,24 +29,24 @@ async function fetchAndDisplayPatientInfo(url) {
         const response = await fetch(url);
         const data = await response.json();
         
-        const patientName = data.name?.[0]?.given?.[0] + ' ' + data.name?.[0]?.family || 'N/A';
+        const patientName = (data.name?.[0]?.given?.join(' ') + ' ' + data.name?.[0]?.family) || 'N/A';
         const patientBirthdate = data.birthDate || 'N/A';
         const patientPhone = data.telecom?.find(t => t.system === 'phone')?.value || 'N/A';
         const patientGender = data.gender || 'N/A';
+
         const patientAddress = data.address?.[0] || {};
-
-        const conditions = [
+        const address = [
             patientAddress.line?.join(', ') || '',
-            patientAddress.city || ''
-        ].filter(line => line).join(', ');
-
-        const medications = [
+            patientAddress.city || '',
+            patientAddress.district || '',
             patientAddress.state || '',
-            patientAddress.postalCode || ''
+            patientAddress.postalCode || '',
+            patientAddress.country || ''
         ].filter(line => line).join(', ');
 
-        const district = patientAddress.district || 'N/A';
-        const country = patientAddress.country || 'N/A';
+        const conditions = patientAddress.line?.[0] || 'N/A';
+        const medications = patientAddress.state || 'N/A';
+        const allergies = patientAddress.country || 'N/A';
 
         document.getElementById('patient-name').textContent = `Name: ${patientName}`;
         document.getElementById('patient-birthdate').textContent = `Birthdate: ${patientBirthdate}`;
@@ -52,8 +54,8 @@ async function fetchAndDisplayPatientInfo(url) {
         document.getElementById('patient-gender').textContent = `Gender: ${patientGender}`;
         document.getElementById('conditions').textContent = `Conditions: ${conditions}`;
         document.getElementById('medications').textContent = `Medications: ${medications}`;
-        document.getElementById('address').textContent = `Address: ${district}`;
-        document.getElementById('allergies').textContent = `Allergies: ${country}`;
+        document.getElementById('address').textContent = `Address: ${address}`;
+        document.getElementById('allergies').textContent = `Allergies: ${allergies}`;
         
         document.getElementById('patient-info').style.display = 'block';
     } catch (error) {
