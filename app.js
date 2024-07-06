@@ -58,11 +58,11 @@ async function fetchAndDisplayPatientInfo(url) {
         const medications = patientAddress.state || 'N/A';
         const allergies = patientAddress.country || 'N/A';
 
-        document.getElementById('patient-name').textContent = `Name: ${patientName}`;
-        document.getElementById('patient-birthdate').textContent = `Birthdate: ${patientBirthdate}`;
-        document.getElementById('patient-phone').textContent = `Phone: ${patientPhone}`;
-        document.getElementById('patient-gender').textContent = `Gender: ${patientGender}`;
-        document.getElementById('conditions').textContent = `Conditions: ${conditions}`;
+        document.getElementById('patient-name').textContent = `Full Name: ${patientName}`;
+        document.getElementById('patient-birthdate').textContent = `Date of Birth: ${patientBirthdate}`;
+        document.getElementById('patient-phone').textContent = `Contact: ${patientPhone}`;
+        document.getElementById('patient-gender').textContent = `Sex: ${patientGender}`;
+        document.getElementById('conditions').textContent = `Medical Conditions: ${conditions}`;
         document.getElementById('medications').textContent = `Medications: ${medications}`;
         document.getElementById('address').textContent = `Address: ${address}`;
         document.getElementById('allergies').textContent = `Allergies: ${allergies}`;
