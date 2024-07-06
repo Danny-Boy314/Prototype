@@ -41,7 +41,25 @@
         #patient-info {
             margin-top: 20px;
             display: none;
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+        #info-background {
+            width: 100%;
+            height: auto;
+        }
+        #info-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 20px;
             color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
         }
         .info-item {
             margin: 10px 0;
@@ -55,15 +73,17 @@
         <button id="scan-button"></button>
     </div>
     <div id="patient-info">
-        <h2>Patient Information</h2>
-        <div id="patient-name" class="info-item"></div>
-        <div id="patient-birthdate" class="info-item"></div>
-        <div id="patient-phone" class="info-item"></div>
-        <div id="patient-gender" class="info-item"></div>
-        <div id="conditions" class="info-item"></div>
-        <div id="medications" class="info-item"></div>
-        <div id="address" class="info-item"></div>
-        <div id="allergies" class="info-item"></div>
+        <img id="info-background" src="https://Danny-Boy314.github.io/Prototype/Screenshot_20240704_185319_Figma.jpg" alt="Patient Information Background">
+        <div id="info-content">
+            <div id="patient-name" class="info-item"></div>
+            <div id="patient-birthdate" class="info-item"></div>
+            <div id="patient-phone" class="info-item"></div>
+            <div id="patient-gender" class="info-item"></div>
+            <div id="conditions" class="info-item"></div>
+            <div id="medications" class="info-item"></div>
+            <div id="address" class="info-item"></div>
+            <div id="allergies" class="info-item"></div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
