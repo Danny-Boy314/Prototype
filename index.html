@@ -3,88 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaiBand Scanner</title>
+    <title>MaiBand Paramedic</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 0;
             margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: black;
+            background-color: #000;
         }
-        #scan-container {
+        #scan-container, #patient-info {
             position: relative;
         }
-        .scan-image {
-            max-width: 100%;
-            height: auto;
-            display: none;
-        }
-        #scan-image1 {
+        #scan-image1, #scan-image2, #patient-info-image {
             display: block;
+            width: 100vw;
+            height: 100vh;
         }
-        #scan-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: transparent;
-            border: none;
-            width: 200px;
-            height: 200px;
-            cursor: pointer;
+        #scan-image2, #patient-info {
+            display: none;
         }
         #patient-info {
-            margin-top: 20px;
-            display: none;
             position: relative;
-            width: 100%;
-            max-width: 500px;
-        }
-        #info-background {
-            width: 100%;
-            height: auto;
-        }
-        #info-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 20px;
-            color: white;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            align-items: start;
+            justify-content: center;
+            padding: 20px;
+            color: white;
         }
-        .info-item {
-            margin: 10px 0;
+        .patient-info-item {
+            position: absolute;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
         }
+        #patient-name { top: 150px; left: 300px; }
+        #patient-birthdate { top: 225px; left: 300px; }
+        #patient-gender { top: 300px; left: 300px; }
+        #conditions { top: 375px; left: 300px; width: 400px; }
+        #medications { top: 475px; left: 300px; width: 400px; }
+        #allergies { top: 575px; left: 300px; width: 400px; }
+        #address { top: 675px; left: 300px; width: 400px; }
+        #patient-phone { top: 775px; left: 300px; }
     </style>
 </head>
 <body>
     <div id="scan-container">
-        <img id="scan-image1" class="scan-image" src="https://Danny-Boy314.github.io/Prototype/Screenshot_20240704_185307_Figma.jpg" alt="MaiBand Paramedic">
-        <img id="scan-image2" class="scan-image" src="https://Danny-Boy314.github.io/Prototype/Screenshot_20240704_185313_Figma.jpg" alt="Ready to Scan">
-        <button id="scan-button"></button>
+        <img id="scan-image1" src="path/to/Screenshot_20240704_185307_Figma.jpg" alt="Scan NFC">
+        <img id="scan-image2" src="path/to/Screenshot_20240704_185313_Figma.jpg" alt="Ready to Scan">
+        <button id="scan-button" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:200px; height:200px; border:none; background:transparent; cursor:pointer;"></button>
     </div>
     <div id="patient-info">
-        <img id="info-background" src="https://Danny-Boy314.github.io/Prototype/Screenshot_20240704_185319_Figma.jpg" alt="Patient Information Background">
-        <div id="info-content">
-            <div id="patient-name" class="info-item"></div>
-            <div id="patient-birthdate" class="info-item"></div>
-            <div id="patient-phone" class="info-item"></div>
-            <div id="patient-gender" class="info-item"></div>
-            <div id="conditions" class="info-item"></div>
-            <div id="medications" class="info-item"></div>
-            <div id="address" class="info-item"></div>
-            <div id="allergies" class="info-item"></div>
-        </div>
+        <img src="path/to/Screenshot_20240704_185319_Figma.jpg" alt="Patient Info" id="patient-info-image">
+        <span id="patient-name" class="patient-info-item"></span>
+        <span id="patient-birthdate" class="patient-info-item"></span>
+        <span id="patient-gender" class="patient-info-item"></span>
+        <span id="conditions" class="patient-info-item"></span>
+        <span id="medications" class="patient-info-item"></span>
+        <span id="allergies" class="patient-info-item"></span>
+        <span id="address" class="patient-info-item"></span>
+        <span id="patient-phone" class="patient-info-item"></span>
     </div>
-    <script src="app.js"></script>
+    <script src="path/to/your-script.js"></script>
 </body>
 </html>
