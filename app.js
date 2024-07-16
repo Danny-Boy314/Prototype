@@ -50,14 +50,14 @@ async function fetchAndDisplayPatientInfo(url) {
         const allergies = patientAddress.country || 'N/A';
         const address = patientAddress.district || 'N/A';
 
-        document.getElementById('patient-name').textContent = `Name: ${patientName}`;
-        document.getElementById('patient-birthdate').textContent = `Birthdate: ${patientBirthdate}`;
-        document.getElementById('patient-phone').textContent = `Phone: ${patientPhone}`;
-        document.getElementById('patient-gender').textContent = `Gender: ${patientGender}`;
-        document.getElementById('conditions').textContent = `Conditions: ${conditions}`;
-        document.getElementById('medications').textContent = `Medications: ${medications}`;
-        document.getElementById('address').textContent = `Address: ${address}`;
-        document.getElementById('allergies').textContent = `Allergies: ${allergies}`;
+        document.getElementById('patient-name').textContent = `${patientName}`;
+        document.getElementById('patient-birthdate').textContent = `${patientBirthdate}`;
+        document.getElementById('patient-phone').textContent = `${patientPhone}`;
+        document.getElementById('patient-gender').textContent = `${patientGender}`;
+        document.getElementById('conditions').textContent = `${conditions}`;
+        document.getElementById('medications').textContent = `${medications}`;
+        document.getElementById('address').textContent = `${address}`;
+        document.getElementById('allergies').textContent = `${allergies}`;
         
         document.getElementById('patient-info').style.display = 'block';
     } catch (error) {
